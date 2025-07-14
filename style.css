@@ -1,0 +1,223 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    color: #333;
+    background-color: #fdfdfd;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.hero {
+    background-image: url('https://avatars.mds.yandex.net/i?id=6d9354a17d1ae89fdcff8cc9adb9e1fc_l-7086430-images-thumbs&n=13'); 
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 40px;
+    border-radius: 10px;
+}
+
+h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin: 10px 0 0;
+}
+
+.hero .date {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-top: 20px;
+    letter-spacing: 1px;
+}
+
+.invitation-text {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #eea724;
+}
+
+.invitation-text h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.invitation-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 650px;
+    margin: 0 auto 20px;
+}
+
+.signature {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.5rem;
+    margin-top: 40px;
+}
+
+.details-section {
+    background-color: #f7f7f7;
+    padding: 60px 20px;
+}
+
+.details-section h2 {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.timeline {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: #ccc;
+    top: 0;
+    bottom: 0;
+    left: 59%;
+    margin-left: -1px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    padding-right: 60px;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    padding-left: 60px;
+    text-align: left;
+}
+
+.timeline-icon {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border: 4px solid #c5a47e;
+    top: 28px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-item:nth-child(odd) .timeline-icon {
+    right: -10px;
+}
+
+.timeline-item:nth-child(even) .timeline-icon {
+    left: -10px;
+}
+
+.timeline-item h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    margin-top: 0;
+}
+
+.gift-section, .rsvp-section {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.gift-section h2, .rsvp-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.qr-code {
+    margin-top: 30px;
+}
+
+.qr-code img {
+    max-width: 200px;
+    height: auto;
+    margin-top: 15px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #c5a47e;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #b3926c;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #333;
+    color: white;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+}
+
+/* Анимации */
+.fade-in {
+    animation: fadeIn 2s ease-in-out;
+}
+
+.fade-in-delay {
+    animation: fadeIn 2s ease-in-out 0.5s;
+    animation-fill-mode: backwards;
+}
+
+.fade-in-delay-2 {
+    animation: fadeIn 2s ease-in-out 1s;
+    animation-fill-mode: backwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
