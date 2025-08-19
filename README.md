@@ -1,1 +1,1 @@
-https://dif13.github.io/test-page/wedding_invitation.html
+https://dif13.github.io/test-page/wedding.html
