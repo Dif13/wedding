@@ -21,25 +21,26 @@ img {
     display: block;
 }
 
-#content-part1,
-#content-program,
-#content-guide {
-    /* Set a fixed width for content images to force cropping */
+#content-part1 {
     width: 720px;
     height: auto;
+    margin-top: -20px;
 }
 
-#content-part1 {
-    /* Specific adjustment for the top image */
-    margin-top: -20px;
+#content-program,
+#content-guide {
+    width: 720px;
+    height: auto;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 /* Styles for the tabbed component */
 .tabs-container {
     position: relative;
     width: 100%; 
-    display: flex;
-    justify-content: center;
+    /* Removed flex centering from previous attempt */
 }
 
 .tabs-overlay {
