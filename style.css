@@ -5,7 +5,7 @@ body {
 
 .container {
     display: flex;
-    width: 70%; /* Default width for mobile */
+    width: 110%; /* Default width for mobile */
     padding: 0 20px 57.069px 20px;
     flex-direction: column;
     align-items: center;
