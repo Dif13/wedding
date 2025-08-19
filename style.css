@@ -11,6 +11,7 @@ body {
     align-items: center;
     margin: 0 auto;
     box-sizing: border-box;
+    overflow-x: hidden; /* Hide the overflowing parts of the wide images */
 }
 
 /* --- Image Styles --- */
@@ -23,8 +24,8 @@ img {
 #content-part1,
 #content-program,
 #content-guide {
-    /* Default sizing for content images, can be overridden below */
-    max-width: 100%;
+    /* Set a fixed width for content images to force cropping */
+    width: 720px;
     height: auto;
 }
 
@@ -54,6 +55,8 @@ img {
     width: 50%;
     height: 100%;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent; /* Disable tap highlight on mobile */
+    user-select: none; /* Prevent text selection */
 }
 
 #tab-program {
@@ -71,6 +74,7 @@ img {
 /* Media Query for larger screens */
 @media (min-width: 1024px) {
     .container {
-        width: 390px; /* Width for desktops */
+        width: 720px; /* Width for desktops */
+        overflow-x: visible; /* Show the full image on desktop */
     }
 }

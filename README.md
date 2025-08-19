@@ -1,1 +1,1 @@
-https://dif13.github.io/wedding/wedding.html
+https://dif13.github.io/wedding/weddin_2.html
