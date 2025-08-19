@@ -71,6 +71,6 @@ img {
 /* Media Query for larger screens */
 @media (min-width: 1024px) {
     .container {
-        width: 780px; /* Width for desktops */
+        width: 390px; /* Width for desktops */
     }
 }
