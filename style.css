@@ -22,14 +22,14 @@ img {
 }
 
 #content-part1 {
-    width: 720px;
+    width: 600px; /* Smaller width for more visible area on mobile */
     height: auto;
     margin-top: -20px;
 }
 
 #content-program,
 #content-guide {
-    width: 720px;
+    width: 600px; /* Smaller width for more visible area on mobile */
     height: auto;
     position: relative;
     left: 50%;
@@ -79,5 +79,18 @@ img {
     .container {
         width: 720px; /* Width for desktops */
         overflow-x: visible; /* Show the full image on desktop */
+    }
+
+    #content-part1,
+    #content-program,
+    #content-guide {
+        width: 100%; /* Images fill the container on desktop */
+    }
+
+    #content-program,
+    #content-guide {
+        /* Reset mobile-specific centering */
+        position: static;
+        transform: none;
     }
 }
