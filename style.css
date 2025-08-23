@@ -52,10 +52,12 @@ img {
 }
 
 .button-area {
-    width: 600px; /* Fixed width to match mobile image */
+    position: absolute;
+    width: 600px;
     height: 100%;
-    margin: 0 auto; /* Center this area */
-    position: relative; /* New positioning context for buttons */
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .tab-button {
@@ -144,7 +146,10 @@ img {
     }
 
     .button-area {
-        width: 100%; /* Let the button area fill the larger container */
+        width: 100%;
+        position: relative; /* Reset positioning */
+        left: 0;
+        transform: none;
     }
 
     #content-part1,
