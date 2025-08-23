@@ -1,4 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Preloader Logic ---
+    const body = document.body;
+    const firstImage = document.getElementById('content-part1');
+
+    const showContent = () => {
+        body.classList.remove('content-loading');
+    };
+
+    if (firstImage.complete) {
+        // If the image is already cached and loaded, show content immediately
+        showContent();
+    } else {
+        // Otherwise, wait for the image to load
+        firstImage.addEventListener('load', showContent);
+    }
+
     // --- Get all elements ---
     const contentProgram = document.getElementById('content-program');
     const contentGuide = document.getElementById('content-guide');

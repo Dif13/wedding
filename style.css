@@ -3,6 +3,10 @@ body {
     background: linear-gradient(176deg, #F0E8E1 0.55%, #FBC2D7 21.68%, #F0E8E1 70.49%, #FFB6C6 85.81%, #FB90A7 96.73%);
 }
 
+.content-loading .container {
+    visibility: hidden;
+}
+
 .container {
     display:flex;
     width: 100%; /* Default width for mobile */
