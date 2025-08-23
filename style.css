@@ -74,7 +74,7 @@ img {
     left: 0;
     width: 50%;
     height: 80px; /* Original height */
-    background-color: rgba(255, 0, 0, 0.5); 
+    background-color: rgba(255, 0, 0, 0.0); 
 }
 
 #tab-guide {
@@ -82,15 +82,15 @@ img {
     right: 0; /* Positioned to the right */
     width: 50%;
     height: 80px; /* Original height */
-    background-color: rgba(0, 128, 0, 0.5);
+    background-color: rgba(0, 128, 0, 0.0);
 }
 
 #tab-guide-scroll {
     top: 48.3%;
-    left: 20%;
+    left: 15%;
     width: 40%;
     height: 2.5%;
-    background-color: rgba(0, 0, 128, 0.5);
+    background-color: rgba(0, 0, 128, 0.0);
 }
 
 /* --- Buttons for Part 3 --- */
@@ -108,7 +108,7 @@ img {
     left: 15%;
     width: 22%;
     height: 1%;
-    background-color: rgba(255, 165, 0, 0.5);
+    background-color: rgba(255, 165, 0, 0.0);
 }
 
 #anchor-btn-2 {
@@ -116,7 +116,7 @@ img {
     left: 37%;
     width: 18%;
     height: 1%;
-    background-color: rgba(255, 255, 0, 0.5);
+    background-color: rgba(255, 255, 0, 0.0);
 }
 
 #anchor-btn-3 {
@@ -124,15 +124,15 @@ img {
     left: 55%;
     width: 30%;
     height: 1%;
-    background-color: rgba(128, 0, 128, 0.5);
+    background-color: rgba(128, 0, 128, 0.0);
 }
 
 #back-to-top-btn {
-    top: 97.45%;
+    top: 97.35%;
     left: 0;
     width: 100%;
-    height: 1%;
-    background-color: rgba(165, 42, 42, 0.5);
+    height: 1.2%;
+    background-color: rgba(165, 42, 42, 0.0);
 }
 
 .hidden {
