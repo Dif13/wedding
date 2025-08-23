@@ -49,12 +49,14 @@ img {
     width: 100%;
     height: 100%; /* Overlay covers the whole container now */
     z-index: 10; /* Ensure tabs are on top */
+    /* This element is just a container, no positioning of its own */
 }
 
 .button-area {
-    position: absolute;
+    /* This area has the SAME positioning as the images below it */
     width: 600px;
     height: 100%;
+    position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
@@ -84,10 +86,9 @@ img {
 }
 
 #tab-guide-scroll {
-    /* Position and size are now all in percentages for responsive scaling */
     top: 48.3%;
-    left: 0%;
-    width: 60%;
+    left: 20%;
+    width: 40%;
     height: 2.5%;
     background-color: rgba(0, 0, 128, 0.5);
 }
@@ -103,35 +104,35 @@ img {
 }
 
 #anchor-btn-1 {
-    top: 11.1%; /* Positioned under the main tabs */
+    top: 11.1%;
     left: 0;
     width: 33%;
     height: 1%;
-    background-color: rgba(255, 165, 0, 0.5); /* Orange */
+    background-color: rgba(255, 165, 0, 0.5);
 }
 
 #anchor-btn-2 {
-    top: 11.1%; /* Same vertical position */
+    top: 11.1%;
     left: 33%;
     width: 23%;
     height: 1%;
-    background-color: rgba(255, 255, 0, 0.5); /* Yellow */
+    background-color: rgba(255, 255, 0, 0.5);
 }
 
 #anchor-btn-3 {
-    top: 11.1%; /* Same vertical position */
+    top: 11.1%;
     left: 56%;
     width: 44%;
     height: 1%;
-    background-color: rgba(128, 0, 128, 0.5); /* Purple */
+    background-color: rgba(128, 0, 128, 0.5);
 }
 
 #back-to-top-btn {
-    top: 97.45%; /* At the very bottom */
+    top: 97.45%;
     left: 0;
     width: 100%;
     height: 1%;
-    background-color: rgba(165, 42, 42, 0.5); /* Brown */
+    background-color: rgba(165, 42, 42, 0.5);
 }
 
 .hidden {
@@ -145,24 +146,20 @@ img {
         overflow-x: visible; /* Show the full image on desktop */
     }
 
-    .button-area {
-        width: 600px;
-        position: relative; /* Reset positioning */
-        left: 0;
-        transform: none;
-        margin: 0 auto; /* Center the button area on desktop */
-    }
-
+    /* Reset ALL canvases for desktop */
     #content-part1,
     #content-program,
     #content-guide {
-        width: 100%; /* Images fill the container on desktop */
+        width: 100%;
+        position: static;
+        transform: none;
+        left: auto;
     }
 
-    #content-program,
-    #content-guide {
-        /* Reset mobile-specific centering */
-        position: static;
+    .button-area {
+        width: 100%;
+        position: absolute; /* Keep it absolute */
+        left: 0;
         transform: none;
     }
 }
