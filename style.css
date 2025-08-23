@@ -105,15 +105,15 @@ img {
 #anchor-btn-1 {
     top: 11.1%; /* Positioned under the main tabs */
     left: 0;
-    width: 30%;
+    width: 33%;
     height: 1%;
     background-color: rgba(255, 165, 0, 0.5); /* Orange */
 }
 
 #anchor-btn-2 {
     top: 11.1%; /* Same vertical position */
-    left: 30%;
-    width: 26%;
+    left: 33%;
+    width: 23%;
     height: 1%;
     background-color: rgba(255, 255, 0, 0.5); /* Yellow */
 }
@@ -146,7 +146,7 @@ img {
     }
 
     .button-area {
-        width: 500px;
+        width: 600px;
         position: relative; /* Reset positioning */
         left: 0;
         transform: none;
