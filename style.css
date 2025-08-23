@@ -3,6 +3,37 @@ body {
     background: linear-gradient(176deg, #F0E8E1 0.55%, #FBC2D7 21.68%, #F0E8E1 70.49%, #FFB6C6 85.81%, #FB90A7 96.73%);
 }
 
+/* --- Preloader Styles --- */
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #F0E8E1; /* Match page background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease; /* Add a fade-out transition */
+    opacity: 0; /* Hidden by default */
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(0, 0, 0, 0.1);
+    border-top-color: #FB90A7; /* Use a color from the theme */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .content-loading .container {
     visibility: hidden;
 }

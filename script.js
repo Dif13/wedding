@@ -1,14 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- Preloader Logic ---
     const body = document.body;
+    const loaderWrapper = document.querySelector('.loader-wrapper');
     const firstImage = document.getElementById('content-part1');
 
+    // Set a timer to show the loader only if loading is slow
+    const loaderTimeout = setTimeout(() => {
+        loaderWrapper.style.opacity = '1';
+    }, 300); // 300ms delay
+
     const showContent = () => {
+        // Loading is finished, so clear the timer
+        clearTimeout(loaderTimeout);
+        
+        // Start fading out the loader
+        loaderWrapper.style.opacity = '0';
+        
+        // Make the main content visible
         body.classList.remove('content-loading');
+
+        // After the fade-out transition ends, remove the loader from the DOM
+        setTimeout(() => {
+            loaderWrapper.style.display = 'none';
+        }, 500); // This must match the transition duration in CSS
     };
 
     if (firstImage.complete) {
-        // If the image is already cached and loaded, show content immediately
+        // If the image is already cached, show content immediately
         showContent();
     } else {
         // Otherwise, wait for the image to load
