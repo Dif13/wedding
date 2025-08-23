@@ -86,8 +86,8 @@ img {
 #tab-guide-scroll {
     /* Position and size are now all in percentages for responsive scaling */
     top: 48.3%;
-    left: 20%;
-    width: 40%;
+    left: 0%;
+    width: 60%;
     height: 2.5%;
     background-color: rgba(0, 0, 128, 0.5);
 }
@@ -103,31 +103,31 @@ img {
 }
 
 #anchor-btn-1 {
-    top: 12%; /* Positioned under the main tabs */
+    top: 11.1%; /* Positioned under the main tabs */
     left: 0;
-    width: 33.33%;
-    height: 5%;
+    width: 30%;
+    height: 1%;
     background-color: rgba(255, 165, 0, 0.5); /* Orange */
 }
 
 #anchor-btn-2 {
-    top: 12%; /* Same vertical position */
-    left: 33.33%;
-    width: 33.33%;
-    height: 5%;
+    top: 11.1%; /* Same vertical position */
+    left: 30%;
+    width: 26%;
+    height: 1%;
     background-color: rgba(255, 255, 0, 0.5); /* Yellow */
 }
 
 #anchor-btn-3 {
-    top: 12%; /* Same vertical position */
-    left: 66.66%;
-    width: 33.33%;
-    height: 5%;
+    top: 11.1%; /* Same vertical position */
+    left: 56%;
+    width: 44%;
+    height: 1%;
     background-color: rgba(128, 0, 128, 0.5); /* Purple */
 }
 
 #back-to-top-btn {
-    top: 96%; /* At the very bottom */
+    top: 97.45%; /* At the very bottom */
     left: 0;
     width: 100%;
     height: 1%;
