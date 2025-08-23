@@ -40,7 +40,6 @@ img {
 .tabs-container {
     position: relative;
     width: 100%; 
-    /* Removed flex centering from previous attempt */
 }
 
 .tabs-overlay {
@@ -48,26 +47,40 @@ img {
     top: 0;
     left: 0;
     width: 100%;
-    height: 50px; /* Approximate height for the tab area, can be adjusted */
-    display: flex;
+    height: 100%; /* Overlay covers the whole container now */
     z-index: 10; /* Ensure tabs are on top */
 }
 
 .tab-button {
-    padding-top: 50px;
-    width: 50%;
-    height: 100%;
+    position: absolute; /* Each tab is positioned independently */
     cursor: pointer;
-    -webkit-tap-highlight-color: transparent; /* Disable tap highlight on mobile */
-    user-select: none; /* Prevent text selection */
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
 }
 
 #tab-program {
-    background-color: rgba(255, 0, 0, 0.0); /* Red with 50% transparency */
+    top: 40px;
+    left: 0;
+    width: 50%;
+    height: 80px; /* Original height */
+    background-color: rgba(255, 0, 0, 0.0); 
 }
 
 #tab-guide {
-    background-color: rgba(0, 128, 0, 0.0); /* Green with 50% transparency */
+    top: 40px;
+    right: 0; /* Positioned to the right */
+    width: 50%;
+    height: 80px; /* Original height */
+    background-color: rgba(0, 128, 0, 0.0);
+}
+
+#tab-guide-scroll {
+    /* This is a GUESS for the position of the new button */
+    top: 1090px;
+    left: 20%;
+    width: 40%;
+    height: 50px;
+    background-color: rgba(0, 0, 128, 0.0); /* Green with 50% transparency */
 }
 
 .hidden {
