@@ -68,9 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // New Part 3 buttons
-    anchorBtn1.addEventListener('click', () => scrollToPercent(3));
-    anchorBtn2.addEventListener('click', () => scrollToPercent(30));
-    anchorBtn3.addEventListener('click', () => scrollToPercent(60));
+    anchorBtn1.addEventListener('click', () => scrollToPercent(11));
+    anchorBtn2.addEventListener('click', () => scrollToPercent(46));
+    anchorBtn3.addEventListener('click', () => scrollToPercent(78));
 
     backToTopBtn.addEventListener('click', () => {
         showProgram();
