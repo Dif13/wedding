@@ -1,40 +1,197 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Приглашение на свадьбу</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3D Карусель карт</title>
+<style>
+  body {
+    margin: 0;
+    background: linear-gradient(180deg, #7a3ff2 0%, #1b1eae 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  /* Экран телефона */
+  .phone-frame {
+    position: relative;
+    width: 360px;
+    height: 791px;
+    background: linear-gradient(180deg, #6c3df0 0%, #1b1eae 100%);
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1200px;
+  }
+
+  .carousel {
+    position: relative;
+    width: 360px;
+    height: 500px;
+    transform-style: preserve-3d;
+    cursor: grab;
+    transition: transform 0.6s ease;
+  }
+
+  .card {
+    position: absolute;
+    width: 100px;
+    height: 150px;
+    left: 50%;
+    top: 50%;
+    transform-style: preserve-3d;
+    transform-origin: center center;
+    margin: -75px -50px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease, scale 0.5s ease;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  }
+
+  .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .card.active {
+    box-shadow: 0 0 45px rgba(255, 220, 120, 0.7), 0 0 100px rgba(255, 215, 0, 0.3);
+    transform: scale(1.15) translateZ(50px);
+    z-index: 10;
+  }
+</style>
 </head>
-<body class="content-loading">
-    <!-- Preloader -->
-    <div class="loader-wrapper">
-        <div class="loader"></div>
-    </div>
-    <div class="container">
-        <img id="content-part1" src="assets/images/part_1.png" alt="Часть 1">
+<body>
 
-        <!-- Tabbed section -->
-        <div class="tabs-container">
-            <div class="tabs-overlay">
-                <div class="button-area">
-                    <!-- Existing Tab Buttons -->
-                    <div id="tab-program" class="tab-button"></div>
-                    <div id="tab-guide" class="tab-button"></div>
-                    <div id="tab-guide-scroll" class="tab-button"></div>
+<div class="phone-frame">
+  <div class="carousel" id="carousel">
+    <!-- 12 карт -->
+    <div class="card"><img src="Cards-Photoroom 1.png" alt="card"></div>
+    <div class="card"><img src="Cards-Photoroom 1.png" alt="card"></div>
+    <div class="card"><img src="Cards-Photoroom 1.png" alt="card"></div>
+    <div class="card"><img src="Cards-Photoroom 1.png" alt="card"></div>
+    <div class="card"><img src="Cards-Photoroom 1.png" alt="card"></div>
+    <div class="card"><img src="Cards-Photoroom 1.png" alt="card"></div>
+    <div class="card"><img src="Cards-Photoroom 1.png" alt="card"></div>
+    <div class="card"><img src="Cards-Photoroom 1.png" alt="card"></div>
+    <div class="card"><img src="Cards-Photoroom 1.png" alt="card"></div>
+    <div class="card"><img src="Cards-Photoroom 1.png" alt="card"></div>
+    <div class="card"><img src="Cards-Photoroom 1.png" alt="card"></div>
+    <div class="card"><img src="Cards-Photoroom 1.png" alt="card"></div>
+  </div>
+</div>
 
-                    <!-- New Buttons for Part 3 -->
-                    <div id="anchor-btn-1" class="part3-button"></div>
-                    <div id="anchor-btn-2" class="part3-button"></div>
-                    <div id="anchor-btn-3" class="part3-button"></div>
-                    <div id="back-to-top-btn" class="part3-button"></div>
-                </div>
-            </div>
-            <img id="content-program" src="assets/images/part_2.png" alt="Программа">
-            <img id="content-guide" src="assets/images/part_3.png" alt="Гид по городу" class="hidden">
-        </div>
-    </div>
+<script>
+  const carousel = document.getElementById('carousel');
+  const cards = document.querySelectorAll('.card');
+  const cardCount = cards.length;
+  let angle = 0;
+  let isDragging = false;
+  let startX = 0;
+  let targetAngle = 0;
+  const step = 360 / cardCount;
+  const radius = 270; // 🔹 уменьшенное расстояние между картами
 
-    <script src="script.js"></script>
+  function updateCarousel() {
+    let closestIndex = 0;
+    let minZ = Infinity;
+
+    cards.forEach((card, i) => {
+      const theta = (i * step + angle) * Math.PI / 180;
+      const x = Math.sin(theta) * radius;
+      const z = Math.cos(theta) * radius;
+      const scale = 0.85 + 0.5 * (1 - Math.abs(Math.sin(theta)));
+      const rotateY = Math.sin(theta) * 25;
+
+      card.style.transform = `
+        translate3d(${x}px, 0, ${-z}px)
+        scale(${scale})
+        rotateY(${rotateY}deg)
+      `;
+
+      if (z < minZ) {
+        minZ = z;
+        closestIndex = i;
+      }
+    });
+
+    cards.forEach((card, i) => {
+      if (i === closestIndex) card.classList.add('active');
+      else card.classList.remove('active');
+    });
+  }
+
+  updateCarousel();
+
+  // === Управление мышью ===
+  carousel.addEventListener('mousedown', (e) => {
+    if (e.button === 0) {
+      isDragging = true;
+      startX = e.clientX;
+      carousel.style.cursor = "grabbing";
+    }
+  });
+
+  window.addEventListener('mouseup', () => {
+    if (isDragging) snapToNearest();
+    isDragging = false;
+    carousel.style.cursor = "grab";
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    const delta = e.clientX - startX;
+    angle += delta * 0.3;
+    updateCarousel();
+    startX = e.clientX;
+  });
+
+  // === Сенсорное управление ===
+  carousel.addEventListener('touchstart', (e) => {
+    isDragging = true;
+    startX = e.touches[0].clientX;
+  });
+
+  window.addEventListener('touchend', () => {
+    if (isDragging) snapToNearest();
+    isDragging = false;
+  });
+
+  window.addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
+    const delta = e.touches[0].clientX - startX;
+    angle += delta * 0.3;
+    updateCarousel();
+    startX = e.touches[0].clientX;
+  });
+
+  // === Докручивание до ближайшей карты ===
+  function snapToNearest() {
+    const normalizedAngle = ((angle % 360) + 360) % 360;
+    const nearestIndex = Math.round(normalizedAngle / step);
+    targetAngle = nearestIndex * step;
+    smoothSnap();
+  }
+
+  // === Плавное докручивание ===
+  function smoothSnap() {
+    const diff = targetAngle - angle;
+    if (Math.abs(diff) > 0.5) {
+      angle += diff * 0.1;
+      updateCarousel();
+      requestAnimationFrame(smoothSnap);
+    } else {
+      angle = targetAngle;
+      updateCarousel();
+    }
+  }
+</script>
+
 </body>
 </html>
